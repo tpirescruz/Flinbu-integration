@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+%flexbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+$card : 80%;
+$primary : rgb(30, 130, 177);
+
+$font : "Roboto";
+
+
+%btn {
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    background-color: $primary;
+    &:hover {
+        background-color: rgb(149, 177, 192);
+        color: rgb(37, 49, 68);
+        transition: .2s;
+    }
+
+}
+
+body{
+    @extend %flexbox;
+    font-family: $font;
+    gap: 1rem;
+}
+
+
+
+.card{
+    width: $card;
+    @extend %flexbox;
+    border: 2px solid rgb(188, 206, 212);
+    text-align: center;
+    height: min-content;
+    -webkit-box-shadow: 0px 5px 5px 2px #414b5a4b; 
+    box-shadow: 0px 5px 5px 2px #414b5a4b;
+
+    .card-img{
+        width: $card + 20;
+    }
+}
+
+.card-content {
+    @extend %flexbox;
+    padding: 1rem 1rem;
+}
+
+
+.card-link{
+    color: white;
+    text-decoration: none;
+    @extend %btn;
+    margin-top: 2rem;
+    
+}
+
+
+
