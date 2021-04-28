@@ -1,0 +1,1 @@
+const burger = document.querySelector('.menu');
