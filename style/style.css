@@ -27,17 +27,31 @@ button {
           transform: rotate(360deg);
 }
 
-.nav .menu {
+.nav .main-nav__toggler {
+  height: 3rem;
+  width: 5rem;
+  background-color: transparent;
   background-image: url(/ressources/img/bx-menu-alt-right.svg);
   background-repeat: no-repeat;
   background-size: contain;
-  margin-top: 3rem;
+  margin-top: 5rem;
   margin-right: 3rem;
   cursor: pointer;
 }
 
-.nav .menu li {
+.nav .menu-list li {
   visibility: hidden;
+  cursor: none;
+}
+
+.main-nav__toggler[aria-expanded="true"] {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.main-nav__toggler[aria-expanded="true"] + .menu-list > li {
+  visibility: visible;
+  cursor: pointer;
 }
 
 .hero {
@@ -154,6 +168,7 @@ button {
 
 .hero .hero-profile .hero-profile-shadow {
   position: relative;
+  margin-top: -3rem;
 }
 
 .hero .hero-profile .hero-profile-logo {
@@ -163,7 +178,7 @@ button {
   padding: 3rem;
   border-radius: 50%;
   position: absolute;
-  top: 40rem;
+  top: 37rem;
   right: 48rem;
 }
 
@@ -192,5 +207,12 @@ button {
           align-items: center;
   -webkit-filter: opacity(0.5);
           filter: opacity(0.5);
+}
+
+.hero .hero-profile .hero-social-container img:hover {
+  -webkit-transform: scale(1.5) rotate(5deg);
+          transform: scale(1.5) rotate(5deg);
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 /*# sourceMappingURL=style.css.map */
