@@ -67,6 +67,7 @@
       box-shadow: 0px 14px 40px #00000014;
       width: 30%;
   }
+  /* seb  */
   
   .nav {
       height: 10rem;
@@ -92,32 +93,141 @@
       transform: rotate(360deg);
   }
   
-  .nav .main-nav__toggler {
-      height: 3rem;
-      width: 5rem;
-      background-color: transparent;
+  .container-menu {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      scroll-behavior: smooth;
+      font-family: 'Montserrat', sans-serif;
+  }
+  
+  .menu-button {
+      position: absolute;
+      top: 20px;
+      right: 50px;
       background-image: url(/ressources/img/bx-menu-alt-right.svg);
-      background-repeat: no-repeat;
+      height: 5rem;
+      width: 5rem;
       background-size: contain;
-      margin-top: 5rem;
-      margin-right: 3rem;
+      background-repeat: no-repeat;
+  }
+  
+  .popover {
+      display: none;
+      box-shadow: 0px 6px 8px rgba(19, 19, 19, .7);
+  }
+  
+  .popover:target {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 500;
+  }
+  
+  .popover .content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 0;
+      height: 0;
+      color: #fff;
+      background-color: #F9F9F9;
+      animation: 1s grow ease forwards;
+      text-align: center;
+  }
+  
+  .nav_list {
+      list-style-type: none;
+  }
+  
+  .nav_list a {
+      text-decoration: none;
+      font-size: 50px;
+      color: #333333;
+  }
+  
+  .nav_list_item {
+      height: 100%;
+      overflow: hidden;
+  }
+  
+  .nav_list li {
+      padding: 15px 0;
+      text-transform: uppercase;
+      transform: translateY(200px);
+      opacity: 0;
+      animation: 2s slideUp ease forwards .5s;
+      position: relative;
+  }
+  
+  .nav_list li::before {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 0px;
+      left: 0;
+      bottom: 10px;
+      background: transparent linear-gradient(94deg, var(--unnamed-color-e95841) 0%, #E94B63 100%) 0% 0% no-repeat padding-box;
+      background: transparent linear-gradient(94deg, #E95841 0%, #E94B63 100%) 0% 0% no-repeat padding-box;
+      transition: all .7s ease;
+  }
+  
+  .nav_list li:hover:before {
+      width: 100%;
+  }
+  
+  .popover p {
+      padding: 50px;
+      opacity: 0;
+      animation: 1s fadeIn ease forwards 1s;
+  }
+  
+  .popover .close::after {
+      right: 0;
+      top: 0;
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      display: flex;
+      z-index: 1;
+      font-size: 30px;
+      align-items: center;
+      justify-content: center;
+      background-color: #E95841;
+      color: #fff;
+      content: "×";
       cursor: pointer;
+      opacity: 0;
+      animation: 1s fadeIn ease forwards .5s;
   }
   
-  .nav .menu-list li {
-      visibility: hidden;
-      cursor: none;
+  @keyframes grow {
+      100% {
+          height: 100%;
+          width: 100%;
+      }
   }
   
-  .main-nav__toggler[aria-expanded="true"] {
-      -webkit-transform: rotate(-90deg);
-      transform: rotate(-90deg);
+  @keyframes fadeIn {
+      100% {
+          opacity: 1;
+      }
   }
   
-  .main-nav__toggler[aria-expanded="true"]+.menu-list>li {
-      visibility: visible;
-      cursor: pointer;
+  @keyframes slideUp {
+      100% {
+          transform: translateY(0);
+          opacity: 1;
+      }
   }
+  /* hero section  */
   
   .hero {
       width: 70%;
@@ -232,7 +342,6 @@
   }
   
   .hero .hero-profile .hero-profile-shadow {
-      position: relative;
       margin-top: -3rem;
   }
   
@@ -242,9 +351,9 @@
       box-shadow: 0px 14px 40px #00000029;
       padding: 3rem;
       border-radius: 50%;
-      position: absolute;
-      top: 37rem;
-      right: 48rem;
+      margin-top: -15rem;
+      margin-right: -15rem;
+      z-index: 100;
   }
   
   .hero .hero-profile .hero-profile-logo-img {
@@ -260,6 +369,7 @@
   }
   
   .hero .hero-profile .hero-social-container {
+      margin-top: 2rem;
       width: 30%;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -281,12 +391,64 @@
       transition: .2s;
   }
 
+
   /* section together tom */
 
   .CTA {
     width: 18rem;
     background: transparent linear-gradient(102deg, #E95841 0%, #E94B63 100%) 0% 0% no-repeat padding-box;
     -webkit-box-shadow: 0px 5px 10px #E9584129;
+  }
+
+
+  /* CARDS */
+
+  .cards-reverse h2{
+    color: #E95841;
+    font-size: 1.6rem;
+    font-family: 'Montserrat';
+    font-weight: 700;
+  }
+
+  .cards-reverse h1{
+      font-family: 'Montserrat';
+      font-weight: 700;
+      font-size: 5.5rem;
+      margin-bottom: 2.5rem;
+  }
+
+  .cards-reverse li:nth-child(even){
+      flex-direction: row-reverse;
+  }
+
+  .cards-reverse p{
+      font-family: 'Nunito';
+      font-size: 1.8rem;
+      margin-bottom: 3.2rem;
+  }
+
+  .cards-reverse h1 span{
+      font-weight: normal;
+  }
+
+  .cards-reverse li{
+      display: flex;
+      
+  }
+
+  .cards-reverse img{
+      width: 68.3rem;
+      height: 51.3rem;
+  }
+
+  .card-text{
+      margin: auto;
+      width: 44.4rem;
+  }
+
+  .button-card .create{
+    width: 18rem;
+    background: transparent linear-gradient(102deg, #E95841 0%, #E94B63 100%) 0% 0% no-repeat padding-box;
     box-shadow: 0px 5px 10px #E9584129;
     border-radius: 30px;
     font: normal normal normal 14px/26px Montserrat;
@@ -294,6 +456,7 @@
     text-align: center;
     padding: 1rem 3rem;
     margin-right: 2rem;
+
 }
 
 .CTA:hover {
@@ -378,4 +541,16 @@
 
 body {
     background-color: #F9F9F9;
+}
+
+  .button-card .touch{
+    width: 18rem;
+    background: #F9F9F9 0% 0% no-repeat padding-box;
+    -webkit-box-shadow: 0px 5px 10px #00000019;
+    box-shadow: 0px 5px 10px #00000019;
+    border-radius: 30px;
+    font: normal normal normal 14px/26px Montserrat;
+    color: #E95841;
+    text-align: center;
+    padding: 1rem 3rem;
 }
