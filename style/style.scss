@@ -1,1 +1,174 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Nunito:wght@400;700&display=swap');
+// variables 
+$primary: #333333;
+$secondary: #E95841;
+// reset buttons default style  
+button {
+    border: none;
+}
+
+// Primary Call To Action (CTA) mixing style 
+@mixin CTA {
+    width: 18rem;
+    background: transparent linear-gradient(102deg, #E95841 0%, #E94B63 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 5px 10px #E9584129;
+    border-radius: 30px;
+    font: normal normal normal 14px/26px Montserrat;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 1rem 3rem;
+    &:hover {
+        border: solid 1px #FFFFFF;
+        font: normal normal normal 16px/28px Montserrat;
+        transform: scale(1.1);
+        transition: .3s;
+    }
+}
+
+// Secondary Call To Action (CTA) mixing style 
+@mixin CTA-secondary {
+    width: 18rem;
+    background: #F9F9F9 0% 0% no-repeat padding-box;
+    box-shadow: 0px 5px 10px #00000019;
+    border-radius: 30px;
+    font: normal normal normal 14px/26px Montserrat;
+    color: #E95841;
+    text-align: center;
+    padding: 1rem 3rem;
+    &:hover {
+        border: solid 1px #E95841;
+        font: normal normal normal 16px/28px Montserrat;
+        transform: scale(1.1);
+        transition: .3s;
+    }
+}
+
+// Navbar 
+.nav {
+    height: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .nav-logo {
+        padding: 1rem 2rem;
+        &:hover {
+            transition: 1s;
+            transform: rotate(360deg);
+        }
+    }
+    .main-nav__toggler {
+        height: 3rem;
+        width: 5rem;
+        background-color: transparent;
+        background-image: url(/ressources/img/bx-menu-alt-right.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-top: 5rem;
+        margin-right: 3rem;
+        cursor: pointer;
+    }
+    .menu-list {
+        li {
+            visibility: hidden;
+            cursor: none;
+        }
+    }
+}
+
+.main-nav__toggler[aria-expanded="true"] {
+    transform: rotate(-90deg);
+}
+
+.main-nav__toggler[aria-expanded="true"]+.menu-list>li {
+    visibility: visible;
+    cursor: pointer;
+}
+
+// hero content 
+.hero {
+    width: 70%;
+    height: 50rem;
+    margin: auto;
+    display: flex;
+    .hero-text {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+        h1 {
+            font: normal normal bold 55px/67px Montserrat;
+        }
+        span {
+            font: normal normal normal 55px/67px Montserrat;
+        }
+        h2 {
+            font: normal normal normal 18px/22px Montserrat;
+            color: #333333;
+        }
+        h2::after {
+            content: "";
+            height: .3rem;
+            width: 13%;
+            display: block;
+            margin-top: 1rem;
+            background: transparent linear-gradient(94deg, var(--unnamed-color-e95841) 0%, #E94B63 100%) 0% 0% no-repeat padding-box;
+            background: transparent linear-gradient(94deg, #E95841 0%, #E94B63 100%) 0% 0% no-repeat padding-box;
+        }
+        p {
+            margin-top: 2rem;
+            font: normal normal normal 18px/30px Montserrat;
+            color: #333333;
+        }
+        .buttons-container {
+            margin-top: 2rem;
+            .CTA {
+                @include CTA;
+                margin-right: 2rem;
+            }
+            .CTA-secondary {
+                @include CTA-secondary;
+            }
+        }
+    }
+    .hero-profile {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .hero-profile-shadow {
+            position: relative;
+            margin-top: -3rem;
+        }
+        .hero-profile-logo {
+            background-color: #FFFFFF;
+            box-shadow: 0px 14px 40px #00000029;
+            padding: 3rem;
+            border-radius: 50%;
+            position: absolute;
+            top: 37rem;
+            right: 48rem;
+        }
+        .hero-profile-logo-img {
+            height: 8rem;
+            width: 8rem;
+            &:hover {
+                transition: 1s;
+                transform: rotate(360deg);
+            }
+        }
+        .hero-social-container {
+            width: 30%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            filter: opacity(.5);
+            img {
+                &:hover {
+                    transform: scale(1.5) rotate(5deg);
+                    transition: .2s;
+                }
+            }
+        }
+    }
+}
