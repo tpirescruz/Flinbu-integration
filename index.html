@@ -11,44 +11,49 @@
 </head>
 
 <body>
+
     <header>
-        <nav>
+        <nav class="nav">
             <figure>
-                <img src="/ressources/img/logo.svg" alt="logo">
+                <img class="nav-logo" src="/ressources/img/logo.svg" alt="logo">
             </figure>
-            <ul>
-                <li>
-                    <a href="">Home</a>
-                </li>
-                <li>
-                    <a href="">About</a>
-                </li>
-                <li>
-                    <a href="">Contact</a>
-                </li>
-            </ul>
+            <div class="menu-container">
+                <button class="main-nav__toggler" aria-expanded="false" aria-controls="menu" aria-label="Menu"></button>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">About</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
+
     <main>
         <section class="hero">
-            <div>
-                <h1>Felipe<span>Linares</span></h1>
+            <div class="hero-text">
+                <h1>Felipe <span>Linares</span></h1>
                 <h2>UX Designer, Developer & Consultant</h2>
                 <p>I’m a designer and developer based in Colombia. <br><br>I take into account both sides of the project, users and business to meet the needs of both. Applying analytical thinking, user research and evaluation of the best method and solution,
                     resulting in functional UI designs and 100% sure of its implementation, this thanks to the experience in development acquired in all these years.</p>
-                <div>
-                    <button><a href="">Work together</a></button>
-                    <button><a href="">Resume</a></button>
+                <div class="buttons-container">
+                    <button class="CTA"><a href="">Work together</a></button>
+                    <button class="CTA-secondary"><a href="">Resume</a></button>
                 </div>
             </div>
-            <div>
-                <figure>
+            <div class="hero-profile">
+                <figure class="hero-profile-shadow">
                     <img src="/ressources/img/Shadow.png" alt="blank profile picture">
                 </figure>
-                <figure>
-                    <img src="/ressources/img/logo.svg" alt="logo">
+                <figure class="hero-profile-logo">
+                    <img class="hero-profile-logo-img" src="/ressources/img/logo.svg" alt="logo">
                 </figure>
-                <div>
+                <div class="hero-social-container">
                     <figure>
                         <img src="/ressources/img/Dribbble.svg" alt="Dribbble logo">
                     </figure>
